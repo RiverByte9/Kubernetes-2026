@@ -12,14 +12,14 @@ These notes cover the **fundamental shift** from Docker to Kubernetes:
 **→ **Understanding **Pods** (the smallest deployable unit)
 **→ **ReplicaSets** and **Deployments** (production-ready way to run apps)
 
-### 🧠 Key Mindset Change
+###  Key Mindset Change
 
 > Stop thinking in containers.
 > Start thinking in **Pods** wrapped by **Deployments**.
 
 ---
 
-# 📅 Day 33: Kubernetes Pods | Deploy Your First App
+# Kubernetes Pods | Deploy Your First App
 
 ## 1. Container vs Pod
 
@@ -89,7 +89,7 @@ kubectl port-forward pod/nginx 8080:80
 
 ---
 
-# 📅 Day 34: Kubernetes Deployment | ReplicaSets
+#  Kubernetes Deployment | ReplicaSets
 
 ## 1. Pod vs ReplicaSet vs Deployment
 
@@ -99,7 +99,7 @@ kubectl port-forward pod/nginx 8080:80
 | ReplicaSet | Maintains number of Pods               | ✅            | ✅       | ❌               | Rarely used      |
 | Deployment | Manages ReplicaSet + advanced features | ✅            | ✅       | ✅               | **Production**   |
 
-### 🧠 Simple Analogy
+###  Simple Analogy
 
 * Pod = Worker
 * ReplicaSet = Babysitter
@@ -210,7 +210,7 @@ kubectl delete deployment <name>
 
 ---
 
-# 📘 Detailed Notes: Day-33 | Kubernetes Pods | Deploy Your First App
+# | Kubernetes Pods | Deploy Your First App
 
 **Video**: Abhishek Veeramalla Free DevOps Course (YouTube)
 **Focus**: Understanding Pods (the smallest deployable unit in Kubernetes) + hands-on deployment of your first app (nginx) using Minikube and kubectl
