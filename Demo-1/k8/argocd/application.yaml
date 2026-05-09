@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: studentportal
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/RiverByte9/Kubernetes-2026
+    targetRevision: main
+    path: Demo-1/k8/Argo-App
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+    syncOptions:
+    - CreateNamespace=true
