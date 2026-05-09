@@ -1,0 +1,61 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: studentportal
+  labels:
+    app: studentportal
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: studentportal
+
+  template:
+    metadata:
+      labels:
+        app: studentportal
+
+    spec:
+      containers:
+      - name: studentportal-container
+
+        image: week2app:1.0
+        imagePullPolicy: Never
+
+        ports:
+        - containerPort: 8000
+
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "256m"
+
+          limits:
+            memory: "512Mi"   # FIXED
+            cpu: "500m"
+
+        livenessProbe:
+          httpGet:
+            path: /healthy
+            port: 8000
+
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          timeoutSeconds: 5
+          failureThreshold: 3
+
+        readinessProbe:
+          httpGet:
+            path: /healthy
+            port: 8000
+
+          initialDelaySeconds: 10
+          periodSeconds: 5
+          timeoutSeconds: 3
+          failureThreshold: 2
+
+        env:
+        - name: DB_LINK
+          value: postgresql://postgres:password@postgres-service:5432/mydb
